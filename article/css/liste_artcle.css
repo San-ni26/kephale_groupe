@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+.listeArticle{
+    display: flex;
+    justify-content: center;
+}
+.articles{
+    margin-top: 20px;
+    width: 70%;
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(206, 206, 206);
+}
+.imgImage{
+    width: 100px;
+    height: 100px;
+}
+.imgImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.info_article{
+    margin-left: 20px;
+}
