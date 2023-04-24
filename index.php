@@ -1,6 +1,5 @@
 <?php
-$bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root','root');
-
+include('connexion_db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +12,7 @@ $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root','root');
     <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,700;0,800;1,100;1,700&display=swap"
             rel="stylesheet">
+
     <title>Accuil</title>
 </head>
 <body>

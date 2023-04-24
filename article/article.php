@@ -1,41 +1,30 @@
-
 <?php
-$bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root','root');
-
-if (isset($_POST['envoi']))
-{
-    $nomArticle = $_POST['nomArticle'];
-    $prixArticle = $_POST['prixArticle'];
-    $desciptionArticle = $_POST['desciptionArticle'];
-    if (!empty($nomArticle) AND !empty($prixArticle) AND !empty($desciptionArticle)){
-        $req1 = mysqli_query($son, "SELECT nom, prix, descriptions, FROM article WHERE nom = '$nomArticle' AND  prix = '$prixArticle' AND  descriptions '$desciptionArticle' "); 
-        if (mysqli_num_rows($req1) > 0 ){
-            $message = '<p style="color: red;">le Produit existe deja </p>'; 
-        }else{
-            if (isset($_FILES['image'])){
-                $img_nom = $_FILES['image']['name'];  
-                $tmp_nom = $_FILES['image']['tmp_name'];  
-                $time =time();  
-                $nouveau_nom_img =$time.$img_nom ;   
-                $deplace_image = move_uploaded_file($tmp_nom,"SRC/".$nouveau_nom_img ); 
-                if ($deplace_image){
-                    $req2 = mysqli_query($son, "INSERT INTO article VALUES (NULL,'$nomArticle', '$prixArticle', '$desciptionArticle', '$nouveau_nom_img')");  
-                    if ($req2){
-                        $message = '<p style="color: red;">larticle a ete cree </p>';  
-                    }else{
-                        $message = '<p style="color: red;">non envoye</p>';
-                    }
-                } 
-            }
+$bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root', 'root');
+if (isset($_POST['envoi'])) {
+    if (!empty($_POST['nomArticle']) and !empty($_POST['prixArticle']) and !empty($_POST['desciptionArticle']) and !empty($_FILES['image'])) {
+        $nomArticle = $_POST['nomArticle'];
+        $prixArticle = $_POST['prixArticle'];
+        $desciptionArticle = $_POST['desciptionArticle'];
+        $image = $_FILES['image'];
+        $starget_dir = "image/";
+        $starget_file = $starget_dir . basename($image['name']);
+        $image_path =  $starget_dir . basename($image['name']);
+        if (!move_uploaded_file($image['tmp_name'], $starget_file)) {
+            $insertmbr = $bdd->prepare("INSERT INTO article (nom, prix, desciptions, images ) VALUES (?, ?, ? ,?) ");
+            $insertmbr->execute(array($nomComplais, $nomDuBoutique, $numerau, $code2));
+            echo'envoie';
+            $sql = "INSERT INTO article (nom, prix, descriprions, images ) VALUES ('$nomArticle', '$prixArticle', '$desciptionArticle', '$image_path') ";
+        } else {
+            echo 'non envoie';
         }
-    }else{
-        $message = '<p style="color: red;">renplice tout les chans </p>';
+    } else {
+        echo '<p>tout les chant ne son pas renpli<p>';
     }
-    $images = $_POST['images'];
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,30 +32,22 @@ if (isset($_POST['envoi']))
     <link rel="stylesheet" href="stil.css">
     <title>inscriptions</title>
 </head>
+
 <body>
     <div class="fond">
         <div>
-        <?php if ( isset($message )){
-             echo $message; 
-        } ?> 
         </div>
         <h2>inscriptions</h2>
         <br><br><br>
-        <form method="POST" action="">
-        <input type="text"name="nomArticle" placeholder="Nom de l'article"><br><br>
-            <input type="text"name="prixArticle" placeholder="Prix de l'article" ><br><br>
-            <input type="text"name="desciptionArticle" placeholder="Descriptions" ><br><br>
+        <form method="POST" action="article.php" enctype="multipart/form-data">
+            <input type="text" name="nomArticle" placeholder="Nom de l'article"><br><br>
+            <input type="text" name="prixArticle" placeholder="Prix de l'article"><br><br>
+            <input type="text" name="desciptionArticle" placeholder="Descriptions"><br><br>
             <label for="">Ajoute une image</label><br>
-            <input type="file" name="image"><br><br>
-        <input type="submit" name="envoi" value="je minscrit"> 
+            <input type="file" name="image" multiple><br><br>
+            <input type="submit" name="envoi" value="je minscrit">
         </form>
     </div>
-    <?php
-
-        ?>  
 </body>
+
 </html>
-
-
-
-
