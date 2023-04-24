@@ -1,9 +1,20 @@
 <?php
- session_start();
-$bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root','root');
+session_start();
+$bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root', 'root');
+$requet = " SELECT * FROM article ORDER BY id ASC "; 
+$result =  $bdd->query($requet);
+$produit = $result->fetch(PDO::FETCH_ASSOC); 
+if (!$result){
+    echo 'la recuperations na pas ete faite'; 
+}else{
+  
+    echo 'la recuperations efectue';  
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +22,7 @@ $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root','root');
     <link rel="stylesheet" href="css/liste_artcle.css">
     <title>Document</title>
 </head>
+
 <body>
     <section>
         <div class="bloc">
@@ -19,12 +31,13 @@ $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root','root');
             <div class="listeArticle">
                 <div class="articles">
                     <div class="imgImage">
-                        <img src="SRC/tomi.jpg" alt="">
+                        <img src="image/<?php echo $produit['images']; ?>"alt="">
                     </div>
                     <div class="info_article">
-                    <h3>Non article</h3>
-                    <h5>prix article</h5>
-                    <p>descriptions article</p>
+                        <h2><?php echo $produit['nom']; ?></h2>
+                        <h5><?php echo $produit['prix']; ?></h5>
+                        <p><h5><?php echo $produit['descriptions']; ?></h5></p>
+
                     </div>
                 </div>
 
@@ -32,4 +45,5 @@ $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root','root');
         </div>
     </section>
 </body>
+
 </html>

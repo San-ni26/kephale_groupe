@@ -13,9 +13,9 @@
     margin-top: 20px;
     width: 70%;
     display: flex ;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    background-color: rgb(206, 206, 206);
+    background-color: rgb(107, 31, 31);
 }
 .imgImage{
     width: 100px;

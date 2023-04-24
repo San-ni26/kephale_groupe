@@ -2,18 +2,18 @@
 $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root', 'root');
 if (isset($_POST['envoi'])) {
     if (!empty($_POST['nomArticle']) and !empty($_POST['prixArticle']) and !empty($_POST['desciptionArticle']) and !empty($_FILES['image'])) {
-        $nomArticle = $_POST['nomArticle'];
-        $prixArticle = $_POST['prixArticle'];
-        $desciptionArticle = $_POST['desciptionArticle'];
-        $image = $_FILES['image'];
-        $starget_dir = "image/";
-        $starget_file = $starget_dir . basename($image['name']);
-        $image_path =  $starget_dir . basename($image['name']);
+        $nom_article = $_POST['nomArticle'];
+        $prix_article = $_POST['prixArticle'];
+        $desciption_article = $_POST['desciptionArticle'];
+        if (!empty($_FILES['image']['name'])) {
+            $image = $_FILES['image']['name'];
+            $filename = uniqid() . $image;
+            move_uploaded_file($_FILES['image']['tmp_name'], 'image/' . $filename);
+        }
         if (!move_uploaded_file($image['tmp_name'], $starget_file)) {
-            $insertmbr = $bdd->prepare("INSERT INTO article (nom, prix, desciptions, images ) VALUES (?, ?, ? ,?) ");
-            $insertmbr->execute(array($nomComplais, $nomDuBoutique, $numerau, $code2));
-            echo'envoie';
-            $sql = "INSERT INTO article (nom, prix, descriprions, images ) VALUES ('$nomArticle', '$prixArticle', '$desciptionArticle', '$image_path') ";
+            $inser = $bdd->prepare("INSERT INTO article  VALUES (null,?,?,?,?) ");
+            $insere = $inser->execute(array($nom_article, $prix_article, $desciption_article, $filename));
+            
         } else {
             echo 'non envoie';
         }
