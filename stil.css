@@ -1,0 +1,10 @@
+.fond{
+    background-color: rgb(251, 251, 251);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.fond h2{
+    padding: 0% 100%;
+}

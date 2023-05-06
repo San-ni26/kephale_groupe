@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+.barreDeNavigation{
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    background-color: #2C2D2A;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    
+}
+.logo img{
+    width: 120px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+a img{
+    width: 25px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+}
+/* . sections icone utilisateur */
+
+
+/* . fin icone utilisateur */
+
+
+/* . sections fix */
+
+.fix{
+    width: auto;
+    height: 50px;
+    background-color: #ffffff;
+    padding-top: 30px;
+}
+
+/* . Fin sections fix */
+body{
+    width: 100%;
+    height: 100%;
+}
+.linkc {
+    display: 100%;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.linkc a {
+    background-color: #efefef;
+    padding: 5px 13px;
+    color: #000000;
+    border-radius: 6px;
+}
+.listeArticle{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    
+}
+.articles{
+    padding: 0;
+    margin-top: 20px;
+    width: 340px;
+    height: 100px;
+    display: flex ;
+    background-color: rgb(240, 239, 239);
+    border-radius: 7px;
+    margin-left: 10px;
+    
+}
+.imgImage{
+    width: 140px;
+    height: 100px;
+}
+.imgImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7px 0px 0px 7px;
+}
+.info_article{
+    margin-left: 20px;
+    margin-top: 6px;
+}
+.info_article h2{
+    font-size: 17px;
+    font-weight: 500;
+}
+.info_article h5{
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 17px;
+}
+.buton_modif{
+    margin-top: 0px;
+    display: flex;
+}
+.buton_modif a {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #F7A429;
+    border: none;
+    border-radius: 6px;
+    color: aliceblue;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+.buton_modif .suprime{
+    background-color: red;
+}

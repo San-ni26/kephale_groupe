@@ -1,5 +1,5 @@
 <?php
- session_start();
+session_start();
 $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root','root');
 
 if (isset($_POST['envoi']))
