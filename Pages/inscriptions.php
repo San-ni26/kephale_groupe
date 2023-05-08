@@ -21,9 +21,16 @@ require_once("db_inscriptions.php");
             <input type="text" name="nomComplais"placeholder="Nom" value="<?php if (isset($nomComplais)){ echo $nomComplais; } ?>"><br><br>
             <input type="text" name="nomDuBoutique"placeholder="Mom de la Boutique" value="<?php if (isset($nomDuBoutique)){ echo $nomDuBoutique; } ?>"><br><br>    
             <input type="text" name="numerau"placeholder="telephone" value="<?php if (isset($numerau)){ echo $numerau; } ?>"><br><br>
+            <select name="choix" >
+                <option  id="Petit commerçants">Petit commerçant</option>
+                <option id="Moyen commerçants">Moyen commerçant</option>
+                <option id="Grand commerçants">Grand commerçant</option>
+                <option id="Restaurant">Restaurant</option>
+                <option id="Hôtel">Hôtel</option>
+            </select><br><br>
             <input type="password" name="code1"placeholder="mot de passe " id=""><br><br>
             <input type="password" name="code2"placeholder="confirme" id=""><br><br>
-        <input type="submit" name="envoi" value="je m'inscrit"> 
+        <input type="submit" name="envoi" value="je m'inscrit">
         </form>
         <?php
         if(isset($erreur))

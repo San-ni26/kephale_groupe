@@ -3,7 +3,7 @@ session_start();
 $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root', 'root');
 
 $id_post = $_SESSION['id'];
-var_dump ('$insere'); 
+//var_dump ('$insere'); 
 if (isset($_POST['envoi'])) {
     if (!empty($_POST['nomArticle']) and !empty($_POST['prixArticle']) and !empty($_POST['desciptionArticle'])) {
         $nom_article = $_POST['nomArticle'];
@@ -29,8 +29,7 @@ if (isset($_POST['envoi'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stil.css">
-    <link rel="stylesheet" href="article.css">
+    <link rel="stylesheet" href="css/articles.css">
     <title>inscriptions</title>
 </head>
 

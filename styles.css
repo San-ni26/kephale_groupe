@@ -20,15 +20,23 @@
     width: 150px;
     margin-left: 0px;
 }
+a .icone_connecte{
+    width: 34px; 
+}
+a {
+    display: flex;
+    align-items: center;
+}
+a h6{
+    color: #000000;
+    font-weight: 500;
+}
 a img{
     width: 25px;
     margin-right: 20px;
 
 }
 /* . sections icone utilisateur */
-.utilisateur{ 
- 
-}
 
 /* . fin icone utilisateur */
 
