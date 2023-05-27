@@ -32,7 +32,7 @@ require_once("db_connexion.php");
         }
         ?>
             </div>
-            <input class="envoi_conct" type="submit" name="envoi" value="Connexion" href="index.php">
+            <input class="envoi_conct" type="submit" name="envoi" value="Connexion" ">
         </form>
 
     </div>

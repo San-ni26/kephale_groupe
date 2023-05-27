@@ -1,9 +1,7 @@
 <?php
 session_start();
 $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root', 'root');
-
 $id_post = $_SESSION['id'];
-//var_dump ('$insere'); 
 if (isset($_POST['envoi'])) {
     if (!empty($_POST['nomArticle']) and !empty($_POST['prixArticle']) and !empty($_POST['desciptionArticle'])) {
         $nom_article = $_POST['nomArticle'];
@@ -14,7 +12,7 @@ if (isset($_POST['envoi'])) {
         $tmp = $_FILES['image']['tmp_name']; 
         move_uploaded_file ($tmp, 'image/' . $filename);
         if (!move_uploaded_file($image['tmp_name'], $filename)) {
-            $inser = $bdd->prepare("INSERT INTO articl VALUES (null,?,?,?,?,?) ");
+            $inser = $bdd->prepare("INSERT * INTO article VALUES (null,?,?,?,?,?) ");
             $insere = $inser->execute(array($nom_article, $prix_article, $desciption_article, $filename, $_SESSION['id']));
         }
     } else {
@@ -35,7 +33,7 @@ if (isset($_POST['envoi'])) {
 
 <body>
 
-    <head>
+    <head><br>
         <div class="barreDeNavigation">
             <div class="logo">
                 <a href="../index.php?id=<?php echo $_SESSION['id'] ?>">

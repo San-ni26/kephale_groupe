@@ -32,7 +32,7 @@ if (isset($_GET['id']) and !empty($_GET['id']) > 0) {
     <head>
         <div class="barreDeNavigation">
             <div class="logo">
-                <img class="logo" src="./logo/Logo-Kephale.png" alt="">
+                <img class="logo" src="./logo/Logo-Kephal.png" alt="">
             </div>
             <?php
             if (isset($_SESSION['id']) > 0) {
@@ -58,21 +58,12 @@ if (isset($_GET['id']) and !empty($_GET['id']) > 0) {
         <img src="./logo/Logo png.png" alt="">
     </section>
     <section class="article_un">
-        <a href="">Restaurant</a>
+        <a href="domaine/restaurant.php?id=<?php echo $_SESSION['id'] ?>">Restaurant</a>
         <a href="">Hôtel</a>
         <a href="">Électronique</a>
+       
     </section>
-    <div class="utilisateur">
-        <?php
-        if (isset($_SESSION['id']) and $userinfo['id'] == $_SESSION['id']) {
-            ?>
-            <a href="pages/utilisateur.php?id=<?php echo $_SESSION['id'] ?>">mon compte</a><br> <br>
-            <?php
-        }
-        ?>
-    </div>
     <div>
-
     </div>
 </body>
 

@@ -4,20 +4,13 @@ $bdd = new PDO('mysql:host =localhost;dbname=kephale', 'root', 'root');
 $reque = $bdd->query('SELECT * FROM article');
 if (isset($_GET['id']) and !empty ($_GET['id'])  > 0) {
     $id = ($_SESSION['id']);
-    $requet = $bdd->prepare("SELECT article.nom,prix,descriptions,images,id_users FROM users INNER JOIN article ON users.id = article.id_users WHERE article.id_users = ' $id ' ");
+    $requet = $bdd->prepare("SELECT article.nom,prix,descriptions,images,id_users,id_articles,date_pub FROM users INNER JOIN article ON users.id = article.id_users  WHERE article.id_users = ' $id ' ORDER BY date_pub DESC ");
     $requet->execute();
     $resulta = $requet->fetchAll(PDO::FETCH_ASSOC);
    
    
 }
-$recup = $bdd->prepare("SELECT id FROM article ");  
-$recup->execute(); 
-if ($recup->rowCount()  > 0 ){
 
-    $_GET['idi'] = $recup->fetch() ['id'];   
-}
-
-//var_dump ($recup); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,11 +65,13 @@ if ($recup->rowCount()  > 0 ){
                             <img src="image/<?= $row['images']; ?>" alt="">
                         </div>
                         <div class="info_article">
+                       
                             <h2><?= $row['nom']; ?></h2>
                             <h5><?= $row['prix']; ?></h5>
+                            <h5><?= $row['date_pub']; ?></h5>
                             <div class="buton_modif">
-                                <a href="">Modifier</a>
-                                <a class="suprime" href="suprime.php?id_article=<?php echo $_GET['id'] ?>">Suprime</a>
+                                <a href="edite_article.php?edite_article=<?php echo $row['id_articles']?>">Modifier</a>
+                                <a class="suprime" href="suprime_article.php?id_article=<?php echo $row['id_articles']?>">Supprime</a>
                             </div>
                         </div>
                      
@@ -85,7 +80,9 @@ if ($recup->rowCount()  > 0 ){
             </div>
         </div>
     </section>
+<div class="fond">
 
+</div>
 </body>
 
 </html>

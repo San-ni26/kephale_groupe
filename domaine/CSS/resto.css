@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+.barreDeNavigation{
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid rgb(117, 117, 117);;
+    
+}
+.logo img{
+    width: 150px;
+    margin-left: 0px;
+}
+a .icone_connecte{
+    width: 34px; 
+}
+a {
+    display: flex;
+    align-items: center;
+}
+a h6{
+    color: #000000;
+    font-weight: 500;
+}
+a img{
+    width: 25px;
+    margin-right: 20px;
+
+}
+/* . sections icone utilisateur */
+
+/* . fin icone utilisateur */
+
+
+/* . sections fix */
+
+.fix{
+    width: auto;
+    height: 50px;
+    background-color: #ffffff;
+    padding-top: 30px;
+}
